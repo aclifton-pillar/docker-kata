@@ -1,3 +1,11 @@
+1) Create a nodejs app that runs in a docker container
+2) The nodjs app should receive an arbitrary SOAP call (you decide, mine will be a PING)
+3) Nodejs app should respond to the SOAP call (mine will be PONG)
+4) Create a nodejs app that doesn't need to run in a docker container
+5) That app is run from the command line
+6) When it's run it sends a PING request to the dockerized SOAP server
+7) It waits for the PONG response, prints something and then exits
+
 docker build -t <your username>/node-web-app .
 docker image ls
 
