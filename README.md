@@ -13,3 +13,28 @@ docker run -p 8080:8080 -d <your username>/node-web-app
 
 If you need to disconnect from a remote swarm to manage your local docker:
 eval $(docker-machine env -u)
+
+```
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pm="http://www.getpostman.com/">
+	<soapenv:Header></soapenv:Header>
+	<soapenv:Body>
+		<pm:MyFunction>
+			<pm:name>
+				Hello Message	
+			</pm:name>
+		</pm:MyFunction>
+	</soapenv:Body>
+</soapenv:Envelope>
+```
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"  xmlns:tns="http://www.examples.com/wsdl/MyService.wsdl">
+    <soap:Body>
+        <tns:MyFunctionResponse>
+            <tns:name>Hello Message</tns:name>
+            <tns:testParam></tns:testParam>
+        </tns:MyFunctionResponse>
+    </soap:Body>
+</soap:Envelope>
+```
