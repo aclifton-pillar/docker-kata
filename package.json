@@ -8,6 +8,8 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.16.1"
+    "express": "^4.16.1",
+    "soap": "^0.25.0",
+    "body-parser": "latest"
   }
 }
