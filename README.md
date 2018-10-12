@@ -6,6 +6,12 @@
 6) When it's run it sends a PING request to the dockerized SOAP server
 7) It waits for the PONG response, prints something and then exits
 
+https://nodejs.org/en/docs/guides/nodejs-docker-webapp/
+https://github.com/nodejs/docker-node/blob/master/README.md#how-to-use-this-image
+https://www.w3schools.com/xml/xml_soap.asp
+https://www.npmjs.com/package/soap
+https://stackoverflow.com/questions/49802327/soap-server-using-node-js
+
 docker build -t <your username>/node-web-app .
 docker image ls
 

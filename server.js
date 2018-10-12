@@ -12,25 +12,10 @@ var myService = {
     MyService: {
         MyPort: {
             MyFunction: function(args) {
+                console.log('hitting myfunction');
                 return {
                     name: args.name,
                     testParam: args.testParam
-                }
-            },
-            MyAsyncFunction: function(args, callback) {
-                callback({
-                    name: args.name
-                })
-            },
-            HeadersAwareFunction: function(args, cb, headers) {
-                return {
-                    name: headers.Token
-                }
-            },
-            reallyDetailedFunction: function(args, cb, headers, req) {
-                console.log('SOAP `reallyDetailedFunction` request from ' + req.connection.remoteAddress);
-                return {
-                    name: headers.Token
                 }
             }
         }
@@ -38,17 +23,10 @@ var myService = {
 }
 var xml = require('fs').readFileSync('myservice.wsdl', 'utf8');
 
-var server = http.createServer(function(request, response) {
-    response.end('404: Not found ' + request.url);
-});
-
-server.listen(PORT);
-soap.listen(server, '/wsdl', myService, xml);
-
 var app = express();
 
 app.use(bodyParser.raw({type: function(){return true;}, limit: '5mb'}));
 
-app.listen(PORT+1, function() {
+app.listen(PORT, function() {
     soap.listen(app, '/wsdl', myService, xml);
 });
