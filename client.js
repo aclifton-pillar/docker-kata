@@ -1,12 +1,16 @@
 var soap = require('soap');
 
 var url = 'http://localhost:8080/wsdl?wsdl';
-var args = {name: 'value', testParam: 'something'};
+var argsGood = {message: 'PING'};
+var argsBad = {message: 'BING?'};
 
 soap.createClient(url, function(err, client) {
-    console.log('inside create');
-    console.log(client);
-    client.MyFunction(args, function(err, result) {
+    client.MyFunction(argsGood, function(err, result) {
+        console.log('inside my function');
+        console.log(JSON.stringify(result));
+    }, {timeout: 5000});
+
+    client.MyFunction(argsBad, function(err, result) {
         console.log('inside my function');
         console.log(JSON.stringify(result));
     }, {timeout: 5000});

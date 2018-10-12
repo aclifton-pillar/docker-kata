@@ -13,9 +13,9 @@ var myService = {
         MyPort: {
             MyFunction: function(args) {
                 console.log('hitting myfunction');
+                const message = args.message;
                 return {
-                    name: args.name,
-                    testParam: args.testParam
+                    message: message === 'PING' ? 'PONG': 'GRUMPY CAT SAYS NO'
                 }
             }
         }
